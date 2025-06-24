@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+
+int main() {
+    std::vector<int> vec;
+    for (int i = 1; i <= 20; ++i) {
+        vec.push_back(i);
+    }
+    std::reverse(vec.begin(), vec.end());
+    std::cout << "Reversed vector: ";
+    for (int num : vec) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+    int even_count = std::count_if(
+        vec.begin(), vec.end(),
+        [](int x) { return x % 2 == 0; }
+    );
+    std::cout << "Even numbers count: " << even_count << "\n";
+    vec.erase(
+        std::remove_if(
+            vec.begin(), vec.end(),
+            [](int x) { return x % 3 == 0; }
+        ),
+        vec.end()
+    );
+    std::cout << "After removing divisible by 3: ";
+    for (int num : vec) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
+}
