@@ -1,0 +1,16 @@
+#include <iostream>
+#include <vector>
+
+double average(const std::vector<int>& v) {
+    double sum = 0;
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        sum += *it;
+    }
+    return sum / v.size();
+}
+
+int main() {
+    std::vector<int> vec = {5, 10, 15, 20, 25};
+    std::cout << "Average: " << average(vec) << "\n";
+    return 0;
+}
