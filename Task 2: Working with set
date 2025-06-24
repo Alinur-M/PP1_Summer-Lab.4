@@ -1,0 +1,26 @@
+#include <iostream>
+#include <set>  
+
+int main() {
+    std::set<int> nums;
+    std::cout << "Enter 10 integers: ";
+    for (int i = 0; i < 10; ++i)
+  {
+        int num;
+        std::cin >> num;     
+        nums.insert(num);  }
+    int search_num;
+    std::cout << "Enter a number to search: ";
+    std::cin >> search_num;
+    if (nums.find(search_num) != nums.end()) {
+        std::cout << search_num << " exists in the set.\n";
+    } else {
+        std::cout << search_num << " does not exist in the set.\n";
+    }
+    std::cout << "Set elements: ";
+    for (auto it = nums.begin(); it != nums.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << "\n";
+    return 0;
+}
