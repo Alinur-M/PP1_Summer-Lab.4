@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stack> 
+#include <string> 
+
+bool isBalanced(const std::string& expr) {
+    std::stack<char> s; 
+    for (char ch : expr) {
+        if (ch == '(') {
+            s.push(ch); 
+        } else if (ch == ')') {
+            if (s.empty() || s.top() != '(') {
+                return false;
+            }
+            s.pop();  
+        }
+    }
+    return s.empty();
+}
+
+int main() {
+    std::string expr = "((a+b)*(c-d))";
+    if (isBalanced(expr)) {
+        std::cout << "Correct\n";
+    } else {
+        std::cout << "Incorrect\n";
+    }
+    return 0;
+}
